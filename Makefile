@@ -1,7 +1,7 @@
 # const
 GO_CMD=go
 GO_BUILD=$(GO_CMD) build
-SERVICE_NAME=carefreex
+SERVICE_NAME=gosaga
 REGISTRY=etcdV3
 OUTPUT_DIR=./bin/$(SERVICE_NAME)
 

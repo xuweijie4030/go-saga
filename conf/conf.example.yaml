@@ -38,6 +38,6 @@ RateLimit:
   FillInterval: 1 # 单位: second
   Token: 10000
 
-# 控制服务重启后是否自动恢复running中的saga，仅限单服务使用
-AuthRecover:
-  Switch: false
+# 服务重启后自动恢复running中的saga方式
+SagaRecover:
+  Type: single # 单实例 - single，多实例 - cluster
