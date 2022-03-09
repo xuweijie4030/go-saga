@@ -35,6 +35,10 @@ func SagaCommandService_SubmitSagaValidate(request *proto.SubmitSagaRequest) (er
 			err = errors.New(fmt.Sprintf("not supported transaction CallType: transactionIndex=%v", i))
 			return err
 		}
+		if transaction.CallType == gosaga.RpcTransaction && (transaction.Action == "" || transaction.ServerName == "") {
+			err = errors.New(fmt.Sprintf("when CallType eq 1, Action and ServerName is required : transactionIndex=%v", i))
+			return err
+		}
 		if transaction.CompensateType > gosaga.ForwardCompensateType || transaction.CompensateType < 0 {
 			err = errors.New("not supported transaction CompensateType")
 			return err
